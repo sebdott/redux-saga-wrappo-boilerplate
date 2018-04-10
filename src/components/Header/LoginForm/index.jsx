@@ -23,10 +23,10 @@ const renderField = ({
 const validate = values => {
   const errors = {};
   if (!values.username) {
-    errors.username = '他妈的这是必填';
+    errors.username = 'Invalid Username';
   }
   if (!values.password) {
-    errors.password = '他妈的这是必填!';
+    errors.password = 'Invalid Password';
   }
   return errors;
 };
@@ -41,21 +41,21 @@ const LoginForm = props => {
     <Form className={classes.form} onSubmit={handleSubmit(showResults)}>
       <Field
         className={classes.input}
-        label="用户名"
+        label="Username"
         name="username"
         component={renderField}
       />
       <Field
         className={classes.input}
-        label="密码"
+        label="Password"
         name="password"
         component={renderField}
         type="password"
       />
       <button type="submit" className={classes.btn} disabled={submitting}>
-        登入
+        Login
       </button>
-      <button className={classes.btn}>注册</button>
+      <button className={classes.btn}>Register</button>
     </Form>
   );
 };

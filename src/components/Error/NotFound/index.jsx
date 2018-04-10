@@ -6,10 +6,10 @@ import styles from './styles';
 const NotFound = ({ classes }) => {
   return (
     <div className={classes.container}>
-      <h3 className={classes.headline}>找不到 ¯\_(ツ)_/¯</h3>
-      <p className={classes.paragraph}>哥你是不是迷路了？ 要不先回首页看看</p>
+      <h3 className={classes.headline}>404</h3>
+      <p className={classes.paragraph}>Please go back to the main page</p>
       <Link className={classes.link} to="/">
-        首页
+        Main Page
       </Link>
     </div>
   );

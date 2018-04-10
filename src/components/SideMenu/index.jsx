@@ -40,11 +40,7 @@ class SideMenu extends Component<PropType, StateType> {
     this.handleMenuToggle = throttle(this.handleMenuToggle, 1000);
   }
   static defaultProps = {
-    links: [
-      { url: '/', placeholder: '首页' },
-      { url: '/promote', placeholder: '活动' },
-      { url: '/betcenter', placeholder: '购彩大厅' },
-    ],
+    links: [{ url: '/', placeholder: 'Main' }],
   };
   componentWillReceiveProps(nextProps: PropType) {
     this.setState({

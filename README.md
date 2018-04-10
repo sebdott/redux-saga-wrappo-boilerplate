@@ -6,7 +6,7 @@ This is the list of technologies used :-
 
 **Technologies:-**
 
-- Redux Saga Wrappo
+- Redux Saga Wrappo (https://github.com/codedsphere/redux-saga-wrappo)
 - React Fiber 16.2
 - Webpack 4
 - Babel 7 

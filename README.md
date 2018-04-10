@@ -1,21 +1,18 @@
-### starting project mt-pc in v2.0.0
-run `yarn start` to start development.
+# redux-saga-wrappo-boilerplate
 
-### Component construction
-```
-Router
-  |- pages (wrapped with theme and jss provider)
-      |- layout (optional)
-          |- components
-```
+redux-saga-wrappo-boilerplate is a boilerplate that uses the latest redux-saga-wrappo library
 
-#### foresee roadmap
-* [ ] authentication
-* [ ] encryption on secrets file
-* [ ] error handling
+This is the list of technologies used :- 
 
-#### todo components
-* [ ] catalogue index [WIP]
+**Technologies:-**
 
-#### to discuss
-* [ ] if header and sidebar put outside of route, to avoid blinking and sidebar collapsing, when clicking on link to other page.
+- Redux Saga Wrappo
+- React Fiber 16.2
+- Webpack 4
+- Babel 7 
+- Flow Type
+- JSS
+
+**Why Use Me:-**
+
+You dont have to :) It is just an example for redux saga wrappo.

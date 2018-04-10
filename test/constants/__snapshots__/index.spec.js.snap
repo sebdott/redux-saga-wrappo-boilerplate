@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`constants should have the correct constants 1`] = `
+Object {
+  "API": Object {
+    "CenterPlayerGames": "api/v1/dsf/center/player/31/games",
+    "clientID": 31,
+    "getValidatePic": "/api/v1/account/webapi/account/validateCode/getValidatePic",
+  },
+  "ReducerActionTypes": Object {
+    "appModel": Object {
+      "INITIALIZE_ALL": "appModel_INITIALIZE_ALL",
+      "INITIALIZE_STATE": "appModel_INITIALIZE_STATE",
+      "REMOVE_STATE": "appModel_REMOVE_STATE",
+      "UPDATE_STATE": "appModel_UPDATE_STATE",
+      "namespace": "appModel",
+    },
+    "exampleModel": Object {
+      "INITIALIZE_ALL": "exampleModel_INITIALIZE_ALL",
+      "INITIALIZE_STATE": "exampleModel_INITIALIZE_STATE",
+      "Other_Reducer": "exampleModel_Other_Reducer",
+      "REMOVE_STATE": "exampleModel_REMOVE_STATE",
+      "UPDATE_STATE": "exampleModel_UPDATE_STATE",
+      "namespace": "exampleModel",
+    },
+    "formModel": Object {
+      "INITIALIZE_ALL": "formModel_INITIALIZE_ALL",
+      "INITIALIZE_STATE": "formModel_INITIALIZE_STATE",
+      "REMOVE_STATE": "formModel_REMOVE_STATE",
+      "UPDATE_STATE": "formModel_UPDATE_STATE",
+      "namespace": "formModel",
+    },
+    "themeModel": Object {
+      "INITIALIZE_ALL": "themeModel_INITIALIZE_ALL",
+      "INITIALIZE_STATE": "themeModel_INITIALIZE_STATE",
+      "Other_Reducer": "themeModel_Other_Reducer",
+      "REMOVE_STATE": "themeModel_REMOVE_STATE",
+      "UPDATE_STATE": "themeModel_UPDATE_STATE",
+      "namespace": "themeModel",
+    },
+    "userModel": Object {
+      "INITIALIZE_ALL": "userModel_INITIALIZE_ALL",
+      "INITIALIZE_STATE": "userModel_INITIALIZE_STATE",
+      "Other_Reducer": "userModel_Other_Reducer",
+      "REMOVE_STATE": "userModel_REMOVE_STATE",
+      "UPDATE_STATE": "userModel_UPDATE_STATE",
+      "namespace": "userModel",
+    },
+  },
+  "SagaActionTypes": Object {
+    "authenticationSaga": Object {
+      "LOGIN": "authenticationSaga_LOGIN",
+      "LOGOUT": "authenticationSaga_LOGOUT",
+      "getValidatePic": "authenticationSaga_getValidatePic",
+    },
+  },
+}
+`;

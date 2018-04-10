@@ -1,0 +1,17 @@
+{
+  "globals": {
+    "getSaga": true,
+    "jsdom": false,
+    "navigate": true
+  },
+  "rules": {
+    "no-console": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0
+  },
+  "settings": {
+    "jest": {
+      "jestConfigFile": "../config/jest.config.js"
+    }
+  }
+}

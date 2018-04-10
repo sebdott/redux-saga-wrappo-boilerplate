@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducers should have the correct reducers 1`] = `
+Object {
+  "default": Object {
+    "exampleModel": [Function],
+    "themeModel": [Function],
+    "userModel": [Function],
+  },
+}
+`;

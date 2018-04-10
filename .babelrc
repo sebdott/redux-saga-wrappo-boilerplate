@@ -1,0 +1,82 @@
+{
+    "presets": [
+      ["@babel/env", {
+        "targets": {
+          "browsers": [
+            "> 1%",
+            "last 3 Chrome versions",
+            "last 3 Firefox versions",
+            "last 3 Safari versions",
+            "last 3 Edge versions",
+            "ie >= 10"
+          ]
+        },
+        "useBuiltIns": "entry",
+        "modules": false
+      }],
+      "@babel/react",
+      "@babel/stage-0",
+      "@babel/flow"
+    ],
+    "ignore": [
+      "node_modules/**"
+    ],
+    "plugins": [
+      ["@babel/transform-runtime", 
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "@babel/runtime"
+      }],
+      "@babel/plugin-transform-flow-strip-types",
+      "@babel/plugin-syntax-dynamic-import",
+      "syntax-trailing-function-commas",
+      ["@babel/plugin-proposal-object-rest-spread", { "loose": true, "useBuiltIns": true }],
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-async-to-generator",
+      "@babel/plugin-transform-regenerator",
+      "@babel/plugin-transform-arrow-functions",
+      "transform-react-remove-prop-types",
+      "lodash",
+      [
+        "module:fast-async",
+        {
+          "useRuntimeModule": true
+        }
+      ]
+    ],
+    "env": {
+      "production": {
+        "plugins": [
+          "@babel/plugin-transform-react-inline-elements",
+          "@babel/plugin-transform-react-constant-elements"
+        ]
+      },
+      "development": {
+      },
+      "test": {
+        "presets": [
+          ["@babel/env", {
+            "targets": {
+              "browsers": [
+                "> 1%",
+                "last 3 Chrome versions",
+                "last 3 Firefox versions",
+                "last 3 Safari versions",
+                "last 3 Edge versions",
+                "ie >= 10"
+              ]
+            }
+          }],
+          "@babel/react",
+          "@babel/stage-0"
+        ],
+        "sourceMaps": "both",
+        "plugins": ["@babel/plugin-transform-modules-commonjs",
+          "dynamic-import-node-babel-7"
+        ]
+      }
+    }
+  }
+  

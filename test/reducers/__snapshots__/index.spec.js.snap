@@ -3,8 +3,7 @@
 exports[`reducers should have the correct reducers 1`] = `
 Object {
   "default": Object {
-    "exampleModel": [Function],
-    "themeModel": [Function],
+    "pageModel": [Function],
     "userModel": [Function],
   },
 }

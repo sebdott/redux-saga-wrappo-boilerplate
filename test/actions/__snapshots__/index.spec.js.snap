@@ -2,49 +2,23 @@
 
 exports[`actions should have the correct actions 1`] = `
 Object {
-  "defaultReducerActions": Object {
+  "default": Object {
     "appModel": Object {
       "initializeAll": [Function],
       "initializeState": [Function],
       "removeState": [Function],
       "updateState": [Function],
     },
-    "exampleModel": Object {
-      "initializeAll": [Function],
-      "initializeState": [Function],
-      "removeState": [Function],
-      "updateState": [Function],
-    },
-    "formModel": Object {
-      "initializeAll": [Function],
-      "initializeState": [Function],
-      "removeState": [Function],
-      "updateState": [Function],
-    },
-    "themeModel": Object {
-      "initializeAll": [Function],
-      "initializeState": [Function],
-      "removeState": [Function],
-      "updateState": [Function],
-    },
-    "userModel": Object {
-      "initializeAll": [Function],
-      "initializeState": [Function],
-      "removeState": [Function],
-      "updateState": [Function],
-    },
-  },
-  "exampleReducer": Object {
-    "Other_Reducer": [Function],
   },
 }
 `;
 
 exports[`actions should have the correct actions 2`] = `
 Object {
-  "authenticationSaga": Object {
-    "Login": [Function],
-    "getValidatePic": [Function],
+  "pageSaga": Object {
+    "callGitRepo": [Function],
+    "getUserLogout": [Function],
+    "putUserLogin": [Function],
   },
 }
 `;

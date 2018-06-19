@@ -1,13 +1,12 @@
-import { ReducerActionTypes } from '../constants';
+import {Reducer} from 'constants';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  username: '',
+  password: '',
+  isLogon: false,
+};
 
 export default {
-  namespace: ReducerActionTypes.userModel,
+  namespace: Reducer.userModel,
   state: INITIAL_STATE,
-  reducer: {
-    [ReducerActionTypes.userModel.Other_Reducer](state) {
-      return { ...state };
-    },
-  },
 };

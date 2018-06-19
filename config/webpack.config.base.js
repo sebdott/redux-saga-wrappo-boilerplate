@@ -1,102 +1,140 @@
 /*eslint-disable no-console */
-
-const CircularDependencyPlugin = require('circular-dependency-plugin');
-const paths = require('./paths');
 const path = require('path');
-const { NODE_ENV } = process.env;
-const isProd = process.env.NODE_ENV === 'production';
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const paths = require('./paths');
+const readLess = require('../tools/readLess');
 
-// injectClient: path.resolve(__dirname, '../src/client/main'),
+const {NODE_ENV, CLIENT = 'main2'} = process.env;
+const devMode = NODE_ENV !== 'production';
+const currentClientPath = paths.clients + '\\' + CLIENT;
+const themePath = currentClientPath + '/themes/';
+const themeVariables = readLess('*.less', path.join(__dirname, themePath));
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
+// lessToJs does not support @icon-url: "some-string", so we are manually adding it to the produced themeVariables js object here
+// themeVariables['@icon-url'] = "'http://localhost:8080/fonts/iconfont'";
+
+const cssLoaders = (modules = false) => [
+  devMode
+    ? {
+        loader: 'style-loader',
+        options: {
+          sourceMap: true,
+        },
+      }
+    : MiniCssExtractPlugin.loader,
+  {
+    loader: 'css-loader',
+    options: {
+      localIdentName: '[local].[hash:base64:5]',
+      modules,
+      sourceMap: devMode,
+    },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      plugins: [
+        require('postcss-cssnext')(),
+        require('postcss-flexbugs-fixes')(),
+      ],
+      sourceMap: devMode,
+    },
+  },
+  {
+    loader: 'less-loader',
+    options: {
+      javascriptEnabled: true,
+      modifyVars: themeVariables,
+      sourceMap: devMode,
+    },
+  },
+];
+
 module.exports = {
+  output: {
+    publicPath: ASSET_PATH,
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
+    }),
+    new webpack.NormalModuleReplacementPlugin(
+      /data[\\/]packed[\\/]latest.json$/,
+      path.resolve(__dirname, '../misc/timezone-definitions.json'),
+    ),
+  ],
   resolve: {
     alias: {
-      'app-store$': paths.store,
+      actions: paths.actions,
+      api: paths.api,
       assets: paths.assets,
+      clients: paths.clients,
+      components: paths.components,
+      constants: paths.constants,
+      containers: paths.containers,
+      currentClient: currentClientPath,
+      initials: paths.initials,
+      pages: paths.pages,
+      services: paths.services,
       test: paths.test,
+      themes: themePath,
+      utils: paths.utils,
     },
     modules: [paths.appScripts, paths.nodeModules],
-    extensions: ['.js', '.jsx', '.json'],
-  },
-  resolveLoader: {
-    moduleExtensions: ['-loader'],
+    extensions: ['.js', '.jsx', '.json', '.less'],
   },
   context: paths.app,
-  devtool: 'source-map',
-  plugins: [
-    new CircularDependencyPlugin({
-      exclude: /node_modules/,
-      failOnError: true,
-      cwd: process.cwd(),
-    }),
-  ],
+  externals: {
+    // bcrypt dependency on node native crypto module which not necessary for browser environment.
+    // since webpack only does static analysis to find out what code needs to be bundled.
+    // That means NodeJS crypto is included even though it’s only needed for server side.
+    crypto: 'crypto',
+  },
   module: {
     rules: [
       {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            },
-          },
-        ],
+        test: /\.less$/,
+        use: cssLoaders(true),
+        exclude: [paths.vendor, paths.nodeModules],
+      },
+      {
+        test: /\.less$/,
+        use: cssLoaders(),
+        include: [paths.vendor, paths.nodeModules + '\\antd\\es'],
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         options: {
           cacheDirectory: true,
         },
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         include: paths.appScripts,
       },
       {
-        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: [
-          'url?limit=10000&minetype=application/font-woff&name=fonts/[name].[ext]',
-        ],
+        test: /\.(ttf|eot|woff|woff2|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: './fonts/[name].[hash:8].[ext]',
+        },
         include: /fonts/,
       },
       {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: ['file?name=fonts/[name].[ext]'],
-        include: /fonts/,
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg|ico)$/i,
-        use: [
-          `file?hash=sha512&digest=hex${
-            isProd ? '&name=media/[name].[ext]' : ''
-          }`,
-          {
-            loader: 'image-webpack',
-            query: {
-              optipng: {
-                optimizationLevel: 5,
-              },
-              pngquant: {
-                quality: '75-90',
-              },
-            },
-          },
-        ],
-        include: /media/,
-      },
-      {
-        test: /(manifest\.json|\.xml)$/,
-        use: [
-          {
-            loader: 'file',
-            query: { name: '[name].[ext]' },
-          },
-        ],
-        include: /assets/,
-      },
-      {
-        test: /\.md$/,
-        use: ['html', 'markdown'],
+        test: /\.(jpe?g|png|gif|svg)$/,
+        // defaults to url-loader during development and uses both url-loader and file-loader
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          // url-loader uses file-loader implicitly when limit is set unless fallback is use
+          name: './media/[name].[hash:8].[ext]',
+          // fallback: 'responsive-loader'
+        },
+        include: /images/,
       },
     ],
   },
+  node: {global: true},
 };

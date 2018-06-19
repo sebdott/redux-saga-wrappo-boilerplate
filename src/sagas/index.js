@@ -1,5 +1,5 @@
-import { generateSagas } from 'redux-saga-wrappo/generateSagas';
+import {generateSagas} from 'redux-saga-wrappo';
 
-import authenticationSaga from './authenticationSaga';
-
-export default generateSagas([authenticationSaga]);
+import pageSaga from './pageSaga';
+import errorSaga from './errorSaga';
+export default generateSagas([pageSaga, errorSaga]);

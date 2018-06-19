@@ -1,0 +1,71 @@
+// ant default vars
+// https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
+
+// -------- Colors -----------
+@page-overlay-color : #FFFFFF;
+@dark-primary-color : #303F9F;
+@primary-color : #3F51B5;
+@light-primary-color : #C5CAE9;
+@text-primary-color : #FFFFFF;
+@accent-color : #CDDC39;
+@primary-text-color : #212121;
+@secondary-text-color: #757575;
+@divider-color : #BDBDBD;
+@alert-color : #f5222d;
+
+// marksix color
+@red-ball-color : #fa5252;
+@blue-ball-color : #4dabf7;
+@green-ball-color: #69db7c;
+
+// Base Scaffolding Variables
+// ---
+@border-radius-base: 4px;
+
+// vertical paddings
+@padding-lg: 24px;
+@padding-md: 16px;
+@padding-sm: 12px;
+@padding-xs: 8px;
+
+// Base background color for most components
+@text-color : @primary-text-color;
+@text-color-secondary: @secondary-text-color;
+
+@text-color-dark : @text-primary-color;
+@text-color-secondary-dark: fade(@text-primary-color, 85%);
+
+// Buttons
+@btn-primary-color: #fff;
+@btn-primary-bg : @accent-color;
+
+@btn-default-bg: #fff;
+
+@btn-height-base: 32px;
+@btn-height-lg : 40px;
+@btn-height-sm : 24px;
+
+// Layout
+@layout-body-background : #fafafa;
+@layout-body-foreground : @btn-default-bg;
+@layout-header-height : 80px;
+@layout-header-background: @layout-body-foreground;
+@layout-sider-background : @dark-primary-color;
+
+// LINK
+@link-color : @accent-color;
+@link-hover-color : darken(@accent-color, 5%);
+@link-active-color: darken(@accent-color, 7%);
+
+// Menu
+@menu-highlight-color: @accent-color;
+@menu-item-active-bg : tint(@menu-highlight-color, 90%);
+// dark theme
+@menu-dark-bg: @dark-primary-color;
+
+// Section
+@section-headline-font-size : 18px;
+@section-headline-background: @primary-color;
+@section-headline-color : @text-primary-color;
+
+// @icon-url is handled in the webpack.${environment}.config and assets/styles/common/iconfonts.less files

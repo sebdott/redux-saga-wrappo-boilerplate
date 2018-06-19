@@ -1,13 +1,16 @@
 import keyMirror from 'fbjs/lib/keyMirror';
 /**
- * @constant {Object} ReducerActionTypes
+ * @constant {Object} Reducer
  * @memberof Constants
  */
 
 export const SagaActionTypesInner = {
-  authenticationSaga: keyMirror({
-    LOGIN: undefined,
-    LOGOUT: undefined,
-    getValidatePic: undefined,
+  errorSaga: keyMirror({
+    postErrorNotification: undefined,
+  }),
+  pageSaga: keyMirror({
+    callGitRepo: undefined,
+    putUserLogin: undefined,
+    getUserLogout: undefined,
   }),
 };

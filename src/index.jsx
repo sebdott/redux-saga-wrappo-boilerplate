@@ -1,20 +1,27 @@
-import 'raf/polyfill';
 import '@babel/polyfill';
-import 'core-js/shim';
+import NProgress from 'nprogress';
 import React from 'react';
-import { ConnectedRouter } from 'react-router-redux';
-import { Route } from 'react-router-dom';
-import { appCreator } from 'redux-saga-wrappo/appCreator';
+import {appCreator} from 'redux-saga-wrappo';
+import App from 'initials';
+import rootReducer from 'reducers';
+import rootSaga from 'sagas';
 
-import history from './utils/history';
-import App from './initial';
-import rootSaga from './sagas';
-import rootReducer from './reducers';
+NProgress.configure({
+  showSpinner: false,
+  parent: '#root',
+  easing: 'ease',
+  speed: 500,
+});
 
-appCreator(
-  <ConnectedRouter history={history}>
-    <Route path="/" component={App} />
-  </ConnectedRouter>,
-  document.getElementById('root'),
-  { rootSaga, rootReducer },
-);
+let middleware = [];
+if (process.env.NODE_ENV === 'development') {
+  const {createLogger} = require('redux-logger');
+  middleware.push(createLogger({collapsed: true}));
+}
+
+appCreator(<App />, document.getElementById('root'), {
+  rootSaga,
+  rootReducer,
+  persistReducerList: ['userModel'],
+  middleware,
+});

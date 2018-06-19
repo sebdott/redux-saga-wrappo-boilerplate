@@ -1,3 +1,3 @@
-import * as apiRequest from './apiRequest';
+import apiHandler from './APIHandler';
 
-export { apiRequest };
+export {apiHandler};

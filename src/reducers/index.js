@@ -1,6 +1,5 @@
-import { generateReducers } from 'redux-saga-wrappo/generateReducers';
-import exampleModel from './exampleModel';
-import themeModel from './themeModel';
+import {generateReducers} from 'redux-saga-wrappo';
+import pageModel from './pageModel';
 import userModel from './userModel';
 
-export default generateReducers([exampleModel, themeModel, userModel]);
+export default generateReducers([pageModel, userModel]);

@@ -1,22 +1,17 @@
 import keyMirror from 'fbjs/lib/keyMirror';
 
 /**
- * @constant {Object} ReducerActionTypes
+ * @constant {Object} Reducer
  * @memberof Constants
  */
 
 export const ReducerActionTypesInner = {
-  exampleModel: keyMirror({
-    Other_Reducer: undefined,
-  }),
   themeModel: keyMirror({
     Other_Reducer: undefined,
   }),
-  userModel: keyMirror({
-    Other_Reducer: undefined,
-  }),
-  appModel: {},
-  formModel: {},
+  userModel: keyMirror({}),
+  appModel: keyMirror({}),
+  pageModel: keyMirror({}),
 };
 /**
  * @constant {Object} ReducerDefaultActionTypes

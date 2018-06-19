@@ -1,6 +1,6 @@
-import { getComponents } from 'redux-saga-wrappo/getComponents';
-import client from '../client/index';
+import {getComponents} from 'redux-saga-wrappo';
+import client from 'clients/index';
 
-export function getClientItem(listOfClientItem) {
+export default function getClientItem(listOfClientItem) {
   return getComponents(client, listOfClientItem);
 }

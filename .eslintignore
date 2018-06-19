@@ -1,0 +1,7 @@
+*.min.js
+_*.js
+**/build/*
+dist/*
+**/vendors/*
+# temp not using
+src/stories/*

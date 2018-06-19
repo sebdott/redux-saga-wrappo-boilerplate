@@ -1,3 +1,3 @@
-import * as authenticationSaga from './authenticationSaga';
+import * as pageSaga from './pageSaga';
 
-export { authenticationSaga };
+export {pageSaga};

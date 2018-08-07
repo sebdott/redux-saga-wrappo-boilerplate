@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {ErrorBoundary} from 'containers/Error/';
-import {connect, history} from 'redux-saga-wrappo';
+import {connect, history} from 'rs-wrappo';
 import {ConnectedRouter} from 'react-router-redux';
 import {LocaleProvider} from 'antd';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';

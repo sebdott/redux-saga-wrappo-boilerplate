@@ -2,7 +2,7 @@
  * @namespace constants
  * @desc App constants
  */
-import {addOnActionTypeNaming} from 'redux-saga-wrappo';
+import {addOnActionTypeNaming} from 'rs-wrappo';
 import {ReducerActionTypesInner} from './Reducer';
 import {SagaActionTypesInner} from './Saga';
 import * as SiteMap from './SiteMap/';

@@ -11,8 +11,6 @@ module.exports = {
   moduleFileExtensions: ['js', 'jsx', 'json', 'less'],
   moduleDirectories: ['node_modules', 'src', './'],
   moduleNameMapper: {
-    '^currentClient': '<rootDir>/src/clients/main',
-    '^themes': '<rootDir>/src/clients/main/themes',
     '^mt-action-reducers': '<rootDir>/src/actions/reducers',
     '^mt-action-saga': '<rootDir>/src/actions/saga',
     '^mt-constants': '<rootDir>/src/constants',

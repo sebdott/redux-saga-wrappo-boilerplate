@@ -7,9 +7,6 @@ const readLess = require('../tools/readLess');
 
 const {NODE_ENV, CLIENT = 'main2'} = process.env;
 const devMode = NODE_ENV !== 'production';
-const currentClientPath = paths.clients + '\\' + CLIENT;
-const themePath = currentClientPath + '/themes/';
-const themeVariables = readLess('*.less', path.join(__dirname, themePath));
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 // lessToJs does not support @icon-url: "some-string", so we are manually adding it to the produced themeVariables js object here
@@ -47,7 +44,6 @@ const cssLoaders = (modules = false) => [
     loader: 'less-loader',
     options: {
       javascriptEnabled: true,
-      modifyVars: themeVariables,
       sourceMap: devMode,
     },
   },
@@ -75,12 +71,10 @@ module.exports = {
       components: paths.components,
       constants: paths.constants,
       containers: paths.containers,
-      currentClient: currentClientPath,
       initials: paths.initials,
       pages: paths.pages,
       services: paths.services,
       test: paths.test,
-      themes: themePath,
       utils: paths.utils,
     },
     modules: [paths.appScripts, paths.nodeModules],

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Loadable, Routes} from 'components/Route/';
-import Wrapper from 'containers/MainWrapper';
 import {NotFound} from 'containers/Error/';
 import requireAuth from './requireAuth';
 
@@ -28,11 +27,7 @@ class Router extends Component {
     return <LoadableComponent {...this.props} />;
   }
   render() {
-    return (
-      <Wrapper {...this.props}>
-        <Routes routeList={routeList} />
-      </Wrapper>
-    );
+    return <Routes routeList={routeList} />;
   }
 }
 export default Router;

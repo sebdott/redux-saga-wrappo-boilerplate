@@ -1,7 +1,7 @@
 import '@babel/polyfill';
 import NProgress from 'nprogress';
 import React from 'react';
-import {appCreator} from 'redux-saga-wrappo';
+import {appCreator} from 'rs-wrappo';
 import App from 'initials';
 import rootReducer from 'reducers';
 import rootSaga from 'sagas';

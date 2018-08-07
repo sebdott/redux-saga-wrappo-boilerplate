@@ -1,4 +1,4 @@
-import {generateSagas} from 'redux-saga-wrappo';
+import {generateSagas} from 'rs-wrappo';
 
 import pageSaga from './pageSaga';
 import errorSaga from './errorSaga';

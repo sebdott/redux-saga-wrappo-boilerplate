@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'redux-saga-wrappo';
+import {connect} from 'rs-wrappo';
 import {AccessDenied} from 'containers/Error/';
 
 export default RenderComponent => {

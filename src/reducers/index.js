@@ -1,4 +1,4 @@
-import {generateReducers} from 'redux-saga-wrappo';
+import {generateReducers} from 'rs-wrappo';
 import pageModel from './pageModel';
 import userModel from './userModel';
 
